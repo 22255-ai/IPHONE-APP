@@ -3,3 +3,19 @@
 -- Use the ▷ button in the top right corner to run the entire file.
 
 SELECT * FROM iphone;
+
+
+SELECT * FROM iphone;
+
+-- get iphone with its CPU detatils 
+SELECT i.id, i.model, i.front_camera, i. rear_camera, c.name AS cpu_name
+FROM iphone i 
+JOIN cpu c ON i.cpu_id = c.id;
+
+-- get each iphone with its RAM options 
+SELECT i.model, r.size AS ram_gb
+FROM iphone i 
+JOIN phone_ram pr ON i.id = pr.phone_id
+JOIN ram r ON pr.ram_id = r.id;
+ -- get each iphone with its storage options
+ 

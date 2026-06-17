@@ -19,18 +19,37 @@ def close_connection(exception):
     if db is not None:
         db.close()
 
+def query_db(query, args=(), one=False):
+    cur = get_db().execute(query, args)
+    rv = cur.fetchall()
+    cur.close()
+    return (rv[0] if rv else None) if one else rv
+
 @app.route('/')
 def home ():
     #home page 
-    db=get_db()
-    cursor = db.cursor()
-    sql = "SELECT * FROM iphone;"
-    cursor.execute(sql)
-    results = cursor.fetchall()
+    sql = """SELECT i.id, i.model,i.image_url, r.size AS ram_gb
+            FROM iphone i 
+            JOIN phone_ram pr ON i.id = pr.phone_id
+            JOIN ram r ON pr.ram_id = r.id"""
+ 
+    results = query_db(sql)
     print(results)
     return render_template("home.html",results=results)
 
-
+@app.route('/iphone/<int:iphone_id>')
+def iphone (id):
+    #iphone details page
+    sql =    """SELECT iphone.id, iphone.model, cpu.name, iphone.front_camera, iphone.rear_camera, iphone.image_url
+                FROM iphone JOIN cpu ON cpu.id=iphone.cpu_id
+                JOIN phone_ram ON phone_ram.phone_id=iphone.id
+                JOIN ram ON ram.id=phone_ram.ram_id
+                WHERE iphone.id = ?"""
+    
+    
+    results = query_db(sql,[id],one=True)
+    print(results)
+    return render_template("iphone.html",results=results)
 
 if __name__ == '__main__':
     app.run(debug=True)

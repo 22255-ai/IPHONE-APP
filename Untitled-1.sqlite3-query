@@ -1,0 +1,28 @@
+-- database: ./database.db
+
+SELECT * FROM iphone;
+
+-- get iphone with its CPU detatils 
+SELECT i.id, i.model, i.front_camera, i. rear_camera, c.name AS cpu_name
+FROM iphone i 
+JOIN cpu c ON i.cpu_id = c.id;
+
+-- get each iphone with its RAM options 
+SELECT i.model, r.size AS ram_gb
+FROM iphone AS i 
+JOIN phone_ram pr ON i.id = pr.phone_id
+JOIN ram r ON pr.ram_id = r.id;
+ -- get each iphone with its storage options
+
+-- homepage including the id, model, image_url, ram size 
+SELECT i.id, i.model,i.image_url
+FROM iphone i
+JOIN phone_ram pr ON i.id = pr.phone_id
+JOIN ram r ON pr.ram_id = r.id;
+
+-- one iphone based on id
+SELECT iphone.id, iphone.model, cpu.name, iphone.front_camera, iphone.rear_camera, iphone.image_url
+FROM iphone JOIN cpu ON cpu.id=iphone.cpu_id
+JOIN phone_ram ON phone_ram.phone_id=iphone.id
+JOIN ram ON ram.id=phone_ram.ram_id
+WHERE iphone.id = 2;
