@@ -14,9 +14,13 @@
     
 
     </header>
-    Navigation bar 
-    <nav class="w3-bar w3-black">
-        <a href="#" class="w3-bar-item w3-button">Home</a>
+    
+    <ul>
+  <li><a href="{{url_for('home')}}">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li style="float:right"><a href="#about">About</a></li>
+</ul>
 
      {% block body %}
      {% endblock %}
