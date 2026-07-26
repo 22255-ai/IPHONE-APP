@@ -26,3 +26,6 @@ FROM iphone JOIN cpu ON cpu.id=iphone.cpu_id
 JOIN phone_ram ON phone_ram.phone_id=iphone.id
 JOIN ram ON ram.id=phone_ram.ram_id
 WHERE iphone.id = 2;
+
+
+PRAGMA journal_mode THEN terminal into CREATE INDEX
