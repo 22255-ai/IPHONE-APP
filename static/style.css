@@ -1,37 +1,16 @@
-body,h1,h2,h3,h4,h5,h6 {font-family: Optima, sans-serif;}
-body {
-  margin: 0;
-  padding: 0;
+body,h1,h2,h3,h4,h5,h6 {
+  font-family: Optima, sans-serif;
 }
 
-h2, p {
-  margin: 10px;
+.three-column{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2em;
+
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333333;
-}
 
-ul li {
-  float: left;
-}
-
-ul li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-ul li a:hover:not(.active) {
-  background-color: #111111;
-}
-
-ul li a.active {
-  background-color: #04AA6D;
+img{
+  width: 100%;
+  
 }
