@@ -5,15 +5,15 @@
 <!--a3 colum grid-->
 <div class="three-column">
     {% for phone in results %}
-    <div class="w3-card-4">
-        <!-- the name then the image -->
-         <h1>{{ phone[1] }}</h1>
-         <img src="{{ phone[2] }}" class="iphone[1]">
-
-    </div>
+        <a href="{{ url_for('iphone', iphone_id=phone[0]) }}">
+            <div class="w3-card-4">
+                <!-- the name then the image -->
+                <h1>{{ phone[1] }}</h1>
+                <img src="{{ phone[2] }}" class="iphone[1]">
+            </div>
+        </a>
     {% endfor %}
-
 </div>
 
-
+{% endblock %}
 

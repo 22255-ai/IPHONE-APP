@@ -38,7 +38,7 @@ def home ():
     return render_template("home.html",results=results)
 
 @app.route('/iphone/<int:iphone_id>')
-def iphone (id):
+def iphone (iphone_id):
     #iphone details page
     sql =    """SELECT iphone.id, iphone.model, cpu.name, iphone.front_camera, iphone.rear_camera, iphone.image_url
                 FROM iphone JOIN cpu ON cpu.id=iphone.cpu_id
@@ -47,7 +47,7 @@ def iphone (id):
                 WHERE iphone.id = ?"""
     
     
-    results = query_db(sql,[id],one=True)
+    results = query_db(sql,[iphone_id],one=True)
     print(results)
     return render_template("iphone.html",results=results)
 
