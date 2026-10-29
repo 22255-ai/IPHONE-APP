@@ -1,14 +1,25 @@
 {% extends "base.html" %}
 {% block body %}
-<! - - Just one iphone! - - > 
-<! - - two colum grid - - > 
+
 <div class="two-column">
-    <img src="{{ results[5] }}" alt="{{ results[1] }}" style="max-width: 250px; width: 100%; height: auto;">
+    <div>
+        <img src="{{ results[4] }}" alt="{{ results[1] }}" style="max-width: 250px; width: 100%; height: auto;"> 
+    </div>
 
     <div class="info">
         <h1>CPU: {{ results[2] }}</h1>
         <h1>Front camera: {{ results[3] }}</h1>
-        <h1>Rear camera: {{ results[4] }}</h1>
+        <h1>Rear camera: {{ results[5] }}</h1>
+        <h1>year: {{ results[6]}}</h1>
+        <h1>ram sizes available;</h1>
+        <h1>
+        <ul>
+        {% for size in sizes %}
+        <li>{{size[0]}} gb </li> 
+        {% endfor %}
+        </ul>
+        </h1>
+
     </div>
 </div>
 {% endblock %}

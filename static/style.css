@@ -8,15 +8,15 @@ body,h1,h2,h3,h4,h5,h6 {
   gap: 2em;
 
 }
+.two-column{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
 
+}
 img{
   width: 100%;
   
 }
-.two column(
-  disply: grid:
-  grid-template-column: 1fr 1fr;
-  gap: 3em;
-)
 
 
